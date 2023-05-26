@@ -19,9 +19,14 @@ hr {
 
 .footer li {
     list-style-type: none;
+    line-height: 1.6rem;
 }
 
 .footer-icon {
     width: 16px;
     height: 16px;
+}
+
+.footer a:visited {
+  color:purple;
 }

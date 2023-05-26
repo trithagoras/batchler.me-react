@@ -1,10 +1,19 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import "../styles/footer.css";
 import githubIcon from "../../../assets/github-mark.png";
 import linkedinIcon from "../../../assets/In-Blue-Logo.png.original.png";
 import instagramIcon from "../../../assets/Instagram_Glyph_Gradient.png";
+import { useEffect, useState } from "react";
 
-function Footer() {
+function Footer({darkMode, setDarkMode}: {darkMode: boolean, setDarkMode: React.Dispatch<React.SetStateAction<boolean>>}) {
+  useEffect(() => {
+    if (darkMode) {
+      localStorage.setItem("DarkMode", "1");
+    } else {
+      localStorage.removeItem("DarkMode");
+    }
+  }, [darkMode]);
+
   return (
     <div className="footer">
       <hr />
@@ -42,8 +51,12 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <img src={instagramIcon} alt="github" className="footer-icon" />{" "}
                 <a href="https://www.instagram.com/coreybatchler/">
+                  <img
+                    src={instagramIcon}
+                    alt="github"
+                    className="footer-icon"
+                  />{" "}
                   coreybatchler
                 </a>
               </li>
@@ -51,6 +64,13 @@ function Footer() {
           </Col>
           <Col>
             <p>Full-time software engineer; 5th year (ugh) student at QUT</p>
+            <Form.Check
+              type="switch"
+              id="custom-switch"
+              label="Dark mode"
+              checked={darkMode}
+              onChange={() => setDarkMode(!darkMode)}
+            ></Form.Check>
           </Col>
         </Row>
       </Container>

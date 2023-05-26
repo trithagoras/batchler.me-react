@@ -1,3 +1,19 @@
+.dark-mode {
+  background-color: black !important;
+  color: white;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.dark-mode a:visited {
+  color: #d580ff !important;
+}
+
+.dark-mode .navbar a {
+  color: white !important;
+}
+
 .container-fluid {
   max-width: 780px;
 }
@@ -9,6 +25,7 @@
 
 a {
   text-decoration-line: none !important;
+  /* color: cornflowerblue !important; */
 }
 
 a:hover {
@@ -19,4 +36,8 @@ a:hover {
   justify-content: center;
   display: flex;
   padding-top: 1rem;
+}
+
+.page-title {
+  padding-bottom: 2rem;
 }

@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Form, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/header.css";
 
@@ -23,7 +23,9 @@ function Header() {
               Projects
             </Link>
           </Nav>
+          
         </Container>
+        
       </Navbar>
       <hr />
     </div>
