@@ -1,0 +1,27 @@
+hr {
+  margin-bottom: 40px !important;
+  margin-top: 50px !important;
+}
+
+.footer-heading {
+  font-size: 18px;
+}
+
+.footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    font-weight: lighter;
+}
+
+.footer ul {
+    padding-left: 0;
+}
+
+.footer li {
+    list-style-type: none;
+}
+
+.footer-icon {
+    width: 16px;
+    height: 16px;
+}
