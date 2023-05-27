@@ -13,7 +13,7 @@ function MainLayout() {
       <Container fluid>
         <Row>
           <Col>
-            <Header />
+            <Header darkMode={darkMode} />
           </Col>
         </Row>
         <Row>
