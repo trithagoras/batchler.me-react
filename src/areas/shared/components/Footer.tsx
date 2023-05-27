@@ -3,9 +3,15 @@ import "../styles/footer.css";
 import githubIcon from "../../../assets/github-mark.png";
 import linkedinIcon from "../../../assets/In-Blue-Logo.png.original.png";
 import instagramIcon from "../../../assets/Instagram_Glyph_Gradient.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-function Footer({darkMode, setDarkMode}: {darkMode: boolean, setDarkMode: React.Dispatch<React.SetStateAction<boolean>>}) {
+function Footer({
+  darkMode,
+  setDarkMode,
+}: {
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   useEffect(() => {
     if (darkMode) {
       localStorage.setItem("DarkMode", "1");

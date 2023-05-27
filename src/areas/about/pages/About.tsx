@@ -18,13 +18,32 @@ function About() {
         It's a shame because UQ certainly has the more theoretical CS degree
         while QUT prides itself on being "for the real world" (-_-) and I am
         absolutely fascinated by a lot of CS theory and the inevitable roots in
-        mathematics. At UQ, I learned:
-        <ul>
-          <li><a href="https://my.uq.edu.au/programs-courses/course.html?course_code=COMP2048">Theory of Computing,</a></li>
-          <li><a href="https://my.uq.edu.au/programs-courses/course.html?course_code=csse3100">Reasoning About Programs,</a></li>
-          <li><a href="https://my.uq.edu.au/programs-courses/course.html?course_code=COMP3400">Functional &amp; Logic Programming,</a> and</li>
-          <li><a href="https://my.uq.edu.au/programs-courses/course.html?course_code=COMP4403">Compilers and Interpreters</a></li>
-        </ul>
+        mathematics. At UQ, I did 16 courses, some of which include:
+      </p>
+      <ul>
+        <li>
+          <a href="https://my.uq.edu.au/programs-courses/course.html?course_code=COMP2048">
+            Theory of Computing,
+          </a>
+        </li>
+        <li>
+          <a href="https://my.uq.edu.au/programs-courses/course.html?course_code=csse3100">
+            Reasoning About Programs,
+          </a>
+        </li>
+        <li>
+          <a href="https://my.uq.edu.au/programs-courses/course.html?course_code=COMP3400">
+            Functional &amp; Logic Programming,
+          </a>{" "}
+          and
+        </li>
+        <li>
+          <a href="https://my.uq.edu.au/programs-courses/course.html?course_code=COMP4403">
+            Compilers and Interpreters
+          </a>
+        </li>
+      </ul>
+      <p>
         These were some of my absolute favourite courses and taught me a lot
         about programming theory such as different paradigms, proving program
         correctness, and how languages are designed - which led me to start my

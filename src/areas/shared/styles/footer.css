@@ -8,25 +8,25 @@ hr {
 }
 
 .footer {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    font-weight: lighter;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-weight: lighter;
 }
 
 .footer ul {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .footer li {
-    list-style-type: none;
-    line-height: 1.6rem;
+  list-style-type: none;
+  line-height: 1.6rem;
 }
 
 .footer-icon {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .footer a:visited {
-  color:purple;
+  color: purple;
 }

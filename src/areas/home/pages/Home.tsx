@@ -4,9 +4,8 @@ import { useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Home() {
-  const { darkMode, setDarkMode } = useOutletContext<{
+  const { darkMode } = useOutletContext<{
     darkMode: boolean;
-    setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
   }>();
 
   const dayByLine =

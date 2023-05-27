@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
-import { darkModeClass, darkModeSaved } from "../utils";
+import { darkModeSaved } from "../utils";
 
 function MainLayout() {
   const [darkMode, setDarkMode] = useState(darkModeSaved());
