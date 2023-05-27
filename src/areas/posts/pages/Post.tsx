@@ -37,9 +37,13 @@ function Post() {
       }
       setMetadata(p);
     };
+    const setTitle = () => {
+      document.title = `${metadata?.title} | batchler.me`
+    }
     readFile();
     getMetaData();
-  }, [urlId]);
+    setTitle();
+  }, [urlId, metadata?.title]);
 
   if (err) {
     return <NotFound />;

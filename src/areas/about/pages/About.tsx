@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 function About() {
+  useEffect(() => {
+    document.title = "About | batchler.me";
+  }, []);
   return (
     <div>
       <h1 className="page-title">About me</h1>

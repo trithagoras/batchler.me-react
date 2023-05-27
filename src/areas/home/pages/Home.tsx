@@ -4,6 +4,10 @@ import { useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Home() {
+  useEffect(() => {
+    document.title = "Home | batchler.me";
+  }, []);
+
   const { darkMode } = useOutletContext<{
     darkMode: boolean;
   }>();

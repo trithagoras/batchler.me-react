@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 
 
 function NotFound() {
+    useEffect(() => {
+        document.title = "Page Not Found | batchler.me";
+      }, []);
     return (
         <div>
             <h1>Page not found</h1>

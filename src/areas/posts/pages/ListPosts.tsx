@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import PostEntry from "../components/PostEntry";
 import posts from "../metadata";
 
 function ListPosts() {
+  useEffect(() => {
+    document.title = "Posts | batchler.me";
+  }, []);
   return (
     <ul>
       {posts
