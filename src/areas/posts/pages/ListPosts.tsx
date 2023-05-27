@@ -1,4 +1,4 @@
-import PostIndex from "../components/PostIndex";
+import PostEntry from "../components/PostEntry";
 import posts from "../metadata";
 
 function ListPosts() {
@@ -7,8 +7,8 @@ function ListPosts() {
       {posts
         .sort((a, b) => (a.date <= b.date ? 1 : -1))
         .map((p) => (
-          <li key={p.urlId}>
-            <PostIndex post={p} />
+          <li className="post-entry" key={p.urlId}>
+            <PostEntry post={p} />
           </li>
         ))}
     </ul>

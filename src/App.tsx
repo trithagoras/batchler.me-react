@@ -7,6 +7,7 @@ import Home from "./areas/home/pages/Home";
 import About from "./areas/about/pages/About";
 import ListPosts from "./areas/posts/pages/ListPosts";
 import Post from "./areas/posts/pages/Post";
+import ListProjects from "./areas/projects/pages/ListProjects";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="posts" element={<ListPosts />} />
           <Route path="posts/:urlId" element={<Post />} />
+          <Route path="projects" element={<ListProjects />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

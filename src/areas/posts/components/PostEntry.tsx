@@ -4,7 +4,7 @@ import "../styles/post.css";
 
 function PostIndex({ post }: { post: PostModel }) {
   return (
-    <div className="post-index">
+    <div>
       <span>{post.date.toDateString()}</span>
       <h2 className="h3">
         <Link to={post.urlId}>{post.title}</Link>
