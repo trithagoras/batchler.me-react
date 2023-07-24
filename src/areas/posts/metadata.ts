@@ -15,6 +15,11 @@ const posts: PostModel[] = [
     urlId: "compile-and-link-raylib-windows",
     title: "[Windows] Compiling and adding raylib to Visual Studio 2022 project",
     date: new Date(2022, 12, 22)
+  },
+  {
+    urlId: "game-of-life",
+    title: "Conway's Game of Life using SFML in C++ with multidimensional discrete convolutions",
+    date: new Date(2023, 7, 24)
   }
 ];
 
