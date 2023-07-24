@@ -48,7 +48,7 @@ The kernel will 'slide' over each element in the map matrix, where the updated v
 
 A simple illustration of a kernel convolution is shown below.
 
-<img src='/posts/game-of-life/convolution.gif' />
+<img src='/posts/game-of-life/convolution.gif' style='max-width: 100%' />
 
 (Retrieved from [https://blog.paperspace.com/ghostnet-cvpr-2020/](https://blog.paperspace.com/ghostnet-cvpr-2020/))
 
@@ -175,6 +175,6 @@ And finally, I've implemented some user control, where pressing `[space]` pauses
 
 The final product is shown below. The task was ultimately simple and took around 3 hours of my morning. It was a fun, small, morning exercise in parallelization and many more optimizations could be done (including the use of the [Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform)).
 
-<img src='/posts/game-of-life/Animation.gif' />
+<img src='/posts/game-of-life/Animation.gif' style='max-width: 100%' />
 
 (This post is a work-in-progress, with features still being added to the simulation and the post needing to be rewritten).
