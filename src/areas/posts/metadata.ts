@@ -1,5 +1,7 @@
 import PostModel from "./models/post";
 
+// for some ungodly reason, months are indexed at 0 -_-
+
 const posts: PostModel[] = [
   {
     urlId: "avr-programming-macos",
@@ -14,12 +16,12 @@ const posts: PostModel[] = [
   {
     urlId: "compile-and-link-raylib-windows",
     title: "[Windows] Compiling and adding raylib to Visual Studio 2022 project",
-    date: new Date(2022, 12, 22)
+    date: new Date(2022, 11, 22)
   },
   {
     urlId: "game-of-life",
     title: "Conway's Game of Life using SFML in C++ with multidimensional discrete convolutions",
-    date: new Date(2023, 7, 24)
+    date: new Date(2023, 6, 24)
   }
 ];
 
