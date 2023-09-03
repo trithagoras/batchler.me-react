@@ -12,17 +12,13 @@ function MainLayout() {
     <div className={themeStore.darkMode ? "dark-mode" : ""}>
       <Container fluid>
         <Row>
-          <Col>
+          <Col xs='12'>
             <Header />
           </Col>
-        </Row>
-        <Row>
-          <Col>
+          <Col xs='12'>
             <Outlet />
           </Col>
-        </Row>
-        <Row>
-          <Col>
+          <Col xs='12'>
             <Footer />
           </Col>
         </Row>

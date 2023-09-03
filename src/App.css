@@ -1,10 +1,14 @@
 .dark-mode {
-  background-color: #282C34 !important;
+  background-color: #282C34;
   color: white;
-  position: absolute;
-  height: fit-content;
-  min-height: 100%;
+  min-height: 100vh; /* viewport height */
   width: 100%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .dark-mode a:visited {
@@ -40,4 +44,73 @@ a:hover {
 
 .page-title {
   padding-bottom: 2rem;
+}
+
+/* Base Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 5px;
+  overflow: hidden; /* To handle the border-radius for inner elements */
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.05); /* subtle shadow to give depth */
+}
+
+table thead tr {
+  background-color: #f5f5f5;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+}
+
+/* Zebra striping for rows */
+table tbody tr:nth-of-type(even) {
+  background-color: #fafafa;
+}
+
+/* Hover effect */
+table tbody tr:hover {
+  background-color: #eef1f4;
+}
+
+/* Base Table Styles */
+.dark-mode table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 5px;
+  overflow: hidden; /* To handle the border-radius for inner elements */
+}
+
+.dark-mode table thead tr {
+  background-color: #1c2025; /* Slightly darker than the main dark mode background */
+  color: #ffffff;
+  border-bottom: 3px solid #444;
+}
+
+/* Zebra striping for rows */
+.dark-mode table tbody tr:nth-of-type(even) {
+  background-color: #30353a;
+  color: #ffffff;
+}
+
+/* Hover effect */
+.dark-mode table tbody tr:hover {
+  background-color: #40464d;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .dark-mode table {
+      display: block;
+      overflow-x: auto;
+  }
 }

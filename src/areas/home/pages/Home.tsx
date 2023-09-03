@@ -5,6 +5,7 @@ import { Spinner } from "react-bootstrap";
 import { useStore } from "../../shared/hooks";
 import { ThemeStore } from "../../shared/stores/ThemeStore";
 import { observer } from "mobx-react-lite";
+import GitHubFeed from "../components/GitHubFeed";
 
 const images = [DayImage, NightImage];
 const byLines = [
@@ -53,6 +54,7 @@ function Home() {
       <p className="figure-text">
         <em>{byLine}</em>
       </p>
+      <GitHubFeed />
     </div>
   );
 }
