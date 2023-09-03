@@ -3,23 +3,12 @@ import "../styles/footer.css";
 import githubIcon from "../../../assets/github-mark.png";
 import linkedinIcon from "../../../assets/In-Blue-Logo.png.original.png";
 import instagramIcon from "../../../assets/Instagram_Glyph_Gradient.png";
-import { useEffect } from "react";
+import { useStore } from "../hooks";
+import { ThemeStore } from "../stores/ThemeStore";
+import { observer } from "mobx-react-lite";
 
-function Footer({
-  darkMode,
-  setDarkMode,
-}: {
-  darkMode: boolean;
-  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
-  useEffect(() => {
-    if (darkMode) {
-      localStorage.setItem("DarkMode", "1");
-    } else {
-      localStorage.removeItem("DarkMode");
-    }
-  }, [darkMode]);
-
+function Footer() {
+  const themeStore = useStore(ThemeStore)
   return (
     <div className="footer">
       <hr />
@@ -74,8 +63,8 @@ function Footer({
               type="switch"
               id="custom-switch"
               label="Dark mode"
-              checked={darkMode}
-              onChange={() => setDarkMode(!darkMode)}
+              checked={themeStore.darkMode}
+              onChange={() => themeStore.toggleDarkMode()}
             ></Form.Check>
           </Col>
         </Row>
@@ -84,4 +73,4 @@ function Footer({
   );
 }
 
-export default Footer;
+export default observer(Footer);

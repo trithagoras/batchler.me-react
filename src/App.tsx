@@ -8,21 +8,25 @@ import About from "./areas/about/pages/About";
 import ListPosts from "./areas/posts/pages/ListPosts";
 import Post from "./areas/posts/pages/Post";
 import ListProjects from "./areas/projects/pages/ListProjects";
+import { RootStoreContext } from "./areas/shared/stores/StoreContext";
+import { rootStore } from "./areas/shared/stores/RootStore";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="posts" element={<ListPosts />} />
-          <Route path="posts/:urlId" element={<Post />} />
-          <Route path="projects" element={<ListProjects />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <RootStoreContext.Provider value={rootStore}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="posts" element={<ListPosts />} />
+            <Route path="posts/:urlId" element={<Post />} />
+            <Route path="projects" element={<ListProjects />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </RootStoreContext.Provider>
   );
 }
 

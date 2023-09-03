@@ -1,9 +1,8 @@
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import NotFound from "../../shared/pages/NotFound";
-import PostModel from "../models/post";
 import posts from "../metadata";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -11,77 +10,63 @@ import "katex/dist/katex.min.css"; // `rehype-katex` does not import the CSS for
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
+import { PostStore } from "../stores/PostStore";
+import { useStore } from "../../shared/hooks";
+import { observer } from "mobx-react-lite";
 
 function Post() {
-  const { urlId } = useParams();
-  const [content, setContent] = useState<string>();
-  const [err, setErr] = useState(false);
-  const [metadata, setMetadata] = useState<PostModel>();
+    const { urlId } = useParams();
+    const postStore = useStore(PostStore);
 
-  useEffect(() => {
-    const readFile = () => {
-      import(`../content/${urlId}.md`)
-        .then((res) => {
-          fetch(res.default)
-            .then((res) => res.text())
-            .then((res) => setContent(res))
-            .catch(() => setErr(true));
-        })
-        .catch(() => setErr(true));
-    };
-    const getMetaData = () => {
-      const p = posts.find((p) => p.urlId === urlId);
-      if (p === null) {
-        setErr(true);
-        return;
-      }
-      setMetadata(p);
-    };
-    const setTitle = () => {
-      document.title = `${metadata?.title} | batchler.me`
+    useEffect(() => {
+        postStore.fetchMetadata(urlId, posts);
+        postStore.fetchContent(urlId);
+        return () => postStore.reset(); // cleanup when unmounting
+    }, [urlId, postStore]);
+
+    useEffect(() => {
+        if (postStore.metadata) {
+            document.title = `${postStore.metadata.title} | batchler.me`;
+        }
+    }, [postStore.metadata]);
+
+    if (postStore.error) {
+        return <NotFound />;
     }
-    readFile();
-    getMetaData();
-    setTitle();
-  }, [urlId, metadata?.title]);
 
-  if (err) {
-    return <NotFound />;
-  }
+    if (!postStore.content) {
+        return <Spinner />;
+    }
 
-  if (content === undefined) {
-    return <Spinner />;
-  }
-
-  return (
-    <div>
-      <span>{metadata?.date.toDateString()}</span>
-      <h1 className="page-title">{metadata?.title}</h1>
-      <ReactMarkdown
-        children={content}
-        remarkPlugins={[remarkMath]}
-        rehypePlugins={[rehypeKatex, rehypeRaw]}
-        components={{
-          code({ node, inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || "");
-            return !inline && match ? (
-              <SyntaxHighlighter
-                {...props}
-                children={String(children).replace(/\n$/, "")}
-                style={dark}
-                language={match[1]}
-                PreTag="div"
-              />
-            ) : (
-              <code {...props} className={className}>
-                {children}
-              </code>
-            );
-          },
-        }}
-      />
-    </div>
-  );
+    return (
+        <div>
+            <span>{postStore.metadata?.date.toDateString()}</span>
+            <h1 className="page-title">{postStore.metadata?.title}</h1>
+            <ReactMarkdown
+              children={postStore.content}
+              remarkPlugins={[remarkMath]}
+              rehypePlugins={[rehypeRaw, rehypeKatex]}
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || "");
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      {...props}
+                      children={String(children).replace(/\n$/, "")}
+                      style={dark}
+                      language={match[1]}
+                      PreTag="div"
+                    />
+                  ) : (
+                    <code {...props} className={className}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
+            />
+        </div>
+    );
 }
 
-export default Post;
+export default observer(Post);

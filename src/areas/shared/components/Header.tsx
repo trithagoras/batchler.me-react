@@ -1,11 +1,15 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../styles/header.css";
+import { useStore } from "../hooks";
+import { ThemeStore } from "../stores/ThemeStore";
+import { observer } from "mobx-react-lite";
 
-function Header({darkMode}: {darkMode: boolean}) {
+function Header() {
+  const themeStore = useStore(ThemeStore);
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" variant={darkMode ? "dark" : "light"}>
+      <Navbar collapseOnSelect expand="lg" variant={themeStore.darkMode ? "dark" : "light"}>
         <Container>
           <Navbar.Brand>
             <Link to={"/"} className="site-title navbar-brand navbar-main">
@@ -33,4 +37,4 @@ function Header({darkMode}: {darkMode: boolean}) {
   );
 }
 
-export default Header;
+export default observer(Header);

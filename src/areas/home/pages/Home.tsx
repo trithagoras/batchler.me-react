@@ -1,21 +1,23 @@
 import DayImage from "../../../assets/storyb.jpg";
 import NightImage from "../../../assets/storyb-night.jpg";
-import { useOutletContext } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import { useStore } from "../../shared/hooks";
+import { ThemeStore } from "../../shared/stores/ThemeStore";
+import { observer } from "mobx-react-lite";
+
+const images = [DayImage, NightImage];
+const byLines = [
+  "Brisbane's Story Bridge, Nov. 2019. Taken by me after a few brews at Felon's.",
+  "Brisbane's Story Bridge, Dec. 2021. Believe it or not, taken by me after a few brews at Felon's."
+];
 
 function Home() {
   useEffect(() => {
     document.title = "Home | batchler.me";
   }, []);
 
-  const { darkMode } = useOutletContext<{ darkMode: boolean }>();
-
-  const images = useMemo(() => [DayImage, NightImage], []);
-  const byLines = [
-    "Brisbane's Story Bridge, Nov. 2019. Taken by me after a few brews at Felon's.",
-    "Brisbane's Story Bridge, Dec. 2021. Believe it or not, taken by me after a few brews at Felon's."
-  ];
+  const themeStore = useStore(ThemeStore);
 
   const [srcImage, setSrcImage] = useState(images[0]);
   const [byLine, setByLine] = useState(byLines[0]);
@@ -24,12 +26,12 @@ function Home() {
 
   useEffect(() => {
     setIsLoading(true);
-    setPreloadSrc(images[darkMode ? 1 : 0]);
-  }, [darkMode, images]);
+    setPreloadSrc(images[themeStore.darkMode ? 1 : 0]);
+  }, [themeStore.darkMode]);
 
   const handleImageLoad = () => {
     setSrcImage(preloadSrc);
-    setByLine(byLines[darkMode ? 1 : 0]);
+    setByLine(byLines[themeStore.darkMode ? 1 : 0]);
     setIsLoading(false);
   };
 
@@ -55,4 +57,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default observer(Home);

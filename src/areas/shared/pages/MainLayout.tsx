@@ -2,28 +2,28 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Container, Row, Col } from "react-bootstrap";
-import { useState } from "react";
-import { darkModeSaved } from "../utils";
+import { observer } from "mobx-react-lite";
+import { useStore } from "../hooks";
+import { ThemeStore } from "../stores/ThemeStore";
 
 function MainLayout() {
-  const [darkMode, setDarkMode] = useState(darkModeSaved());
-
+  const themeStore = useStore(ThemeStore);
   return (
-    <div className={darkMode ? "dark-mode" : ""}>
+    <div className={themeStore.darkMode ? "dark-mode" : ""}>
       <Container fluid>
         <Row>
           <Col>
-            <Header darkMode={darkMode} />
+            <Header />
           </Col>
         </Row>
         <Row>
           <Col>
-            <Outlet context={{ darkMode, setDarkMode }} />
+            <Outlet />
           </Col>
         </Row>
         <Row>
           <Col>
-            <Footer darkMode={darkMode} setDarkMode={setDarkMode} />
+            <Footer />
           </Col>
         </Row>
       </Container>
@@ -31,4 +31,4 @@ function MainLayout() {
   );
 }
 
-export default MainLayout;
+export default observer(MainLayout);
