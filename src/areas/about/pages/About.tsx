@@ -9,7 +9,7 @@ function About() {
       <h1 className="page-title">About me</h1>
       <p>
         Hi! I'm Corey and I'm a 22 year old full-time software engineer and 5th
-        year (ugh) student studying Computer Science at QUT in Brisbane,
+        year student studying Computer Science at QUT in Brisbane,
         Australia.
       </p>
       <p>
@@ -20,7 +20,7 @@ function About() {
         absolutely easier to do).
       </p>
       <p>
-        It's a shame because UQ certainly has the more theoretical CS degree
+        It's a shame because UQ certainly has the more interesting theoretical CS degree
         while QUT prides itself on being "for the real world" (-_-) and I am
         absolutely fascinated by a lot of CS theory and the inevitable roots in
         mathematics. At UQ, I did 16 courses, some of which include:

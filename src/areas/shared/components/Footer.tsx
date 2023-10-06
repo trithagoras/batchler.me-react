@@ -58,7 +58,7 @@ function Footer() {
             </ul>
           </Col>
           <Col>
-            <p>Full-time software engineer; 5th year (ugh) student at QUT</p>
+            <p>Full-time software engineer; 5th year student at QUT</p>
             <Form.Check
               type="switch"
               id="custom-switch"
