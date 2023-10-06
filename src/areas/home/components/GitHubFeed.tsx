@@ -34,9 +34,7 @@ const GitHubFeed = () => {
         <div className='mt-5'>
             <h3 className='mb-2'>Recent Activity</h3>
             {githubStore.loading ? (
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <Spinner animation="border" role="status" />
             ) : (
                 <div style={{ maxHeight: '300px', overflowY: 'scroll' }}>
                     <Table striped bordered hover variant={`${themeStore.darkMode ? 'dark' : ''}`}>
